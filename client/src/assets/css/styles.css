@@ -1,0 +1,125 @@
+.task-board {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+.task-column {
+  min-height: 200px;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 8px;
+  transition: background-color 0.2s ease;
+}
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.task-column {
+  min-height: 200px;
+  max-height: calc(100vh - 250px);
+  overflow-y: auto;
+  transition: background-color 0.2s ease;
+}
+
+
+
+.task-board {
+  min-height: calc(100vh - 64px); 
+}
+
+
+.task-column::-webkit-scrollbar {
+  width: 6px;
+}
+
+.task-column::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.task-column::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.task-column::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.task-card {
+  cursor: grab;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.task-card:active {
+  cursor: grabbing;
+}
+
+.gradient-card-total {
+  background: linear-gradient(45deg, #e9bbbb, #DC4C64); 
+  color: white;
+}
+.gradient-card-pending {
+  background: linear-gradient(45deg, #eeeba6, #E4A11B); 
+  color: white;
+}
+.gradient-card-completed {
+  background: linear-gradient(45deg, #b2e1a0, #14A44D); 
+  color: white;
+}
+
+.gradient-card-done {
+  background: linear-gradient(45deg, #b9d4de,  #54B4D3); 
+  color: white;
+}
+
+.count-size{
+  font-family: fantasy;
+   font-size: 50px;
+   font-style: normal;
+   font-variant: normal;
+   font-weight: 600;
+   line-height: 26.4px;
+}
+
+/* Add this to your CSS file */
+.dropdown-menu.show {
+  display: block;
+  position: absolute;
+  transform: translate3d(0px, 40px, 0px);
+  top: 0px;
+  left: auto;
+  right: 0px;
+  will-change: transform;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.bg-yellow-500 {
+  background-color: #E4A11B;
+}
+
+.bg-blue-500 {
+  background-color: #3b82f6;
+}
+
+.bg-green-500 {
+  background-color: #22c55e;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
