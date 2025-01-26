@@ -14,7 +14,7 @@ connectDB();
 connectCloudinary();
 
 app.use(express.json());
-app.use(cors({origin:"https://task-management-system-two-beta.vercel.app"}));
+app.use(cors());
 
 app.use("/api/task", taskRouter);
 app.use("/api/feed", feedRouter);
