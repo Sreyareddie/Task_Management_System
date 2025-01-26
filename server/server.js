@@ -6,6 +6,7 @@ import connectDB from "./src/config/mongodb.js";
 import connectCloudinary from "./src/config/cloudinary.js";
 import userRouter from "./src/routes/userRouter.js";
 import feedRouter from "./src/routes/feedRouter.js";
+import path from "path"; /
 
 const app = express();
 const port = process.env.PORT || 4000;
