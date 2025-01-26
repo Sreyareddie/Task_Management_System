@@ -6,29 +6,19 @@ import connectDB from "./src/config/mongodb.js";
 import connectCloudinary from "./src/config/cloudinary.js";
 import userRouter from "./src/routes/userRouter.js";
 import feedRouter from "./src/routes/feedRouter.js";
-import path from "path";
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 8080;
 
 connectDB();
 connectCloudinary();
 
 app.use(express.json());
-
 app.use(cors());
 
 app.use("/api/task", taskRouter);
 app.use("/api/feed", feedRouter);
 app.use("/api/user", userRouter);
-
-app.use(express.static(path.join(__dirname, "client", "build")));
-
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
-
 
 app.get("/", (req, res) => res.send("API working"));
 
