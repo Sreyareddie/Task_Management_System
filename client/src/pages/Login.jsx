@@ -22,7 +22,7 @@ const Login = () => {
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
 
-        window.location.href = "/dashboard";
+        navigate("/dashboard");
       }
     } catch (err) {
       setErrorMessage(err.response?.data?.message || "Login failed!");
