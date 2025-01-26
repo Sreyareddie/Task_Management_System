@@ -23,8 +23,8 @@ app.use("/api/task", taskRouter);
 app.use("/api/feed", feedRouter);
 app.use("/api/user", userRouter);
 
-app.use(express.static(path.join(_dirname,"/client/dist")));
-app.get("*",(req,res)=>{res.sendFile(path.resolve(_dirname,"client","dist","index.html"));})
+app.use(express.static(path.join(_dirname,"../client/dist")));
+app.get("*",(req,res)=>{res.sendFile(path.resolve(_dirname,"../client/dist","index.html"));})
 
 app.get("/", (req, res) => res.send("API working"));
 
