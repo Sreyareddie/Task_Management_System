@@ -26,7 +26,7 @@ app.use("/api/user", userRouter);
 app.get("/", (req, res) => res.send("API working"));
 // In server.js, update your listen callback
 app.listen(port, '0.0.0.0', () => {
-    console.log(Server running in ${process.env.PORT} mode on port ${port});
+    console.log(`Server running in ${process.env.PORT} mode on port ${port}`);
 });
 
 app.listen(port, () => console.log(`Server started on ${port}`));
