@@ -14,7 +14,14 @@ connectDB();
 connectCloudinary();
 
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin: "https://task-management-system-frontend-wheat.vercel.app/",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+};
+
+
+app.use(cors(corsOptions));
 
 app.use("/api/task", taskRouter);
 app.use("/api/feed", feedRouter);
