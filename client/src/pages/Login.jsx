@@ -7,6 +7,7 @@ import { assets } from "../assets/assets";
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) =>
@@ -15,32 +16,30 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage("");
+    setLoading(true);
 
     try {
       const response = await API.post("/user/login", formData);
-
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
-
         navigate("/dashboard");
       }
     } catch (err) {
       setErrorMessage(err.response?.data?.message || "Login failed!");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <section
-      className="h-100 gradient-form"
-      style={{ backgroundColor: "#eee" }}
-    >
+    <section className="h-100 gradient-form" style={{ backgroundColor: "#eee" }}>
       <div className="container py-2 h-100">
-        <div className="row d-flex justify-content-center  h-100">
+        <div className="row d-flex justify-content-center h-100">
           <div className="col-lg-6">
             <div className="card rounded-3 text-black justify-content-center align-items-center">
               <div className="card-body p-md-5 mx-md-4">
                 <div className="text-center pb-4">
-                  <img src={assets.logo} height="90" />
+                  <img src={assets.logo} height="90" alt="Logo" />
                 </div>
 
                 <form onSubmit={handleSubmit}>
@@ -58,6 +57,7 @@ const Login = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
+                      disabled={loading}
                     />
                   </div>
 
@@ -73,6 +73,7 @@ const Login = () => {
                       value={formData.password}
                       onChange={handleChange}
                       required
+                      disabled={loading}
                     />
                   </div>
 
@@ -82,18 +83,18 @@ const Login = () => {
                       data-mdb-ripple-init
                       className="btn btn-danger btn-block fa-lg gradient-custom-2 mb-3"
                       type="submit"
+                      disabled={loading}
                     >
-                      Log in
+                      {loading ? "Logging in..." : "Log in"}
                     </button>
 
-                    {errorMessage && (
-                      <p className="text-danger mt-3">{errorMessage}</p>
-                    )}
+                    {errorMessage && <p className="text-danger mt-3">{errorMessage}</p>}
                     <br />
                     <button
                       className="text-muted btn btn-link"
                       type="button"
                       onClick={() => navigate("/forgot-password")}
+                      disabled={loading}
                     >
                       Forgot password?
                     </button>
@@ -107,6 +108,7 @@ const Login = () => {
                       data-mdb-ripple-init
                       className="btn btn-outline-danger"
                       onClick={() => navigate("/register")}
+                      disabled={loading}
                     >
                       Create new
                     </button>
