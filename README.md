@@ -1,5 +1,5 @@
-![Feed](https://github.com/user-attachments/assets/1f857a6a-7661-41d5-94b9-097908cc4b4f)# Task Management System
-# Live Link - https://task-management-system-vun7.onrender.com
+# Task Management System
+## Live Link - https://task-management-system-vun7.onrender.com
 ## Overview
 The **Task Management System** is a web application built using the **MERN** stack (**MongoDB, Express.js, React.js, and Node.js**) that allows users to efficiently create, update, and manage their tasks. Users can also post images via feed and see others posts. This system is designed to enhance productivity by providing an intuitive user interface and a robust backend.
 
